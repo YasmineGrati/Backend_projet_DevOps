@@ -1,13 +1,23 @@
 package com.esprit.examen.controllers;
 
 import java.util.List;
+import java.util.Set;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import com.esprit.examen.entities.Facture;
 import com.esprit.examen.entities.Operateur;
 import com.esprit.examen.services.IOperateurService;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import io.swagger.annotations.Api;
+
 
 @RestController
 @Api(tags = "Gestion des opérateurs")
@@ -34,11 +44,14 @@ public class OperateurController {
 	}
 
 	// http://localhost:8089/SpringMVC/operateur/add-operateur
-	@PostMapping("/add-operateur")
+	@PostMapping("/add-operateur/{operateur-name}/{operateur-prenom}/{operateur-password}/")
 	@ResponseBody
-	public Operateur addOperateur(@RequestBody Operateur op) {
-		Operateur operateur = operateurService.addOperateur(op);
-		return operateur;
+	public Operateur addOperateur(@PathVariable ("operateur-name") String prenom,@PathVariable("operateur-prenom") String nom,@PathVariable("operateur-password") String password) {
+		Operateur op =new Operateur();
+		op.setNom(nom);
+		op.setPrenom(prenom);
+		op.setPassword(password);
+		return operateurService.addOperateur(op);
 	}
 
 	// http://localhost:8089/SpringMVC/operateur/remove-operateur/{operateur-id}
