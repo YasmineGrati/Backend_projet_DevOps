@@ -1,4 +1,4 @@
-/*package com.esprit.examen.services;
+package com.esprit.examen.services;
 
 import static org.junit.Assert.*;
 import java.util.List;
@@ -17,7 +17,7 @@ public class StockServiceImplTest {
 	
 	
 	@Test
-	public void testAddStockOptimized() {
+	public void testAddStock() {
 
 		Stock s = new Stock("stock test",12,140);
 		Stock savedStock= stockService.addStock(s);
