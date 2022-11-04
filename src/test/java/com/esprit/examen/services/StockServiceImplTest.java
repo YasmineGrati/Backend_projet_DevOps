@@ -17,12 +17,12 @@ public class StockServiceImplTest {
 	
 	@Test
 	public void testAddStock() {
-	//	List<Stock> stocks = stockService.retrieveAllStocks();
-	//	int expected=stocks.size();
-		Stock s = new Stock("stock test",10,100);
+		List<Stock> stocks = stockService.retrieveAllStocks();
+		int expected=stocks.size();
+		Stock s = new Stock("stock test",5,120);
 		Stock savedStock= stockService.addStock(s);
 		
-	//	assertEquals(expected+1, stockService.retrieveAllStocks().size());
+		assertEquals(expected+1, stockService.retrieveAllStocks().size());
 		assertNotNull(savedStock.getLibelleStock());
 		stockService.deleteStock(savedStock.getIdStock());
 		
@@ -31,10 +31,10 @@ public class StockServiceImplTest {
 	@Test
 	public void testAddStockOptimized() {
 
-		Stock s = new Stock("stock test",10,100);
+		Stock s = new Stock("stock test",12,140);
 		Stock savedStock= stockService.addStock(s);
 		assertNotNull(savedStock.getIdStock());
-		assertSame(10, savedStock.getQte());
+		assertSame(12, savedStock.getQte());
 		assertTrue(savedStock.getQteMin()>0);
 		stockService.deleteStock(savedStock.getIdStock());
 		
