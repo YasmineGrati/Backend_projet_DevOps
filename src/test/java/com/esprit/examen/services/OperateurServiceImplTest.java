@@ -33,7 +33,7 @@ public class OperateurServiceImplTest {
 		assertNotNull(op.getNom());
 		assertNotNull(op.getPrenom());
 		operateurService.addOperateur(op);
-		log.info("operateur ajouter avec success");
+	//	log.info("operateur ajouter avec success");
 	}
 	
 	@Test
@@ -46,7 +46,7 @@ public class OperateurServiceImplTest {
 		assertNotNull(op.getPrenom());
 		operateurService.addOperateur(op);
 		operateurService.addOperateur(op);
-		log.info("operateur ajouter avec success");
+	//	log.info("operateur ajouter avec success");
 		
 		op.setNom("yass");
 		op.setPrenom("makh");
@@ -55,7 +55,7 @@ public class OperateurServiceImplTest {
 		assertNotNull(op.getPrenom());
 		operateurService.addOperateur(op);
 		operateurService.updateOperateur(op);
-		log.info("operateur modifier avec success");
+	//	log.info("operateur modifier avec success");
 	}
 	
 	
@@ -67,20 +67,20 @@ public class OperateurServiceImplTest {
 		op.setPassword("1234");
 		
 		operateurService.addOperateur(op);
-		log.info("operateur ajouter avec success");
+	//	log.info("operateur ajouter avec success");
 		operateurService.deleteOperateur(op.getIdOperateur());
 
 		assertNull(operateurService.retrieveOperateur(op.getIdOperateur()));
-		log.info("operateur supprimer avec success");
+	//	log.info("operateur supprimer avec success");
 	}
 	
 	
 	@Test
 	public void testRetrieveAllOperateur() throws ParseException {
 		List<Operateur> listOperateurs = operateurService.retrieveAllOperateurs();
-		log.info("Nombre operateurs: " + listOperateurs.size()+" \n");
+	//	log.info("Nombre operateurs: " + listOperateurs.size()+" \n");
 		for(int i=0;i<listOperateurs.size();i++){
-			log.info(""+listOperateurs.get(i).getNom());
+		//	log.info(""+listOperateurs.get(i).getNom());
 		}
 	}
 	

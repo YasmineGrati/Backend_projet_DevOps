@@ -2,7 +2,7 @@ package com.esprit.examen.services;
 
 import static org.junit.Assert.*;
 import java.util.List;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,14 +15,15 @@ public class StockServiceImplTest {
 	@Autowired
 	IStockService stockService;
 	
+
 	
 	@Test
-	public void testAddStock() {
+	public void testAddStockOptimized() {
 
-		Stock s = new Stock("stock test",12,140);
+		Stock s = new Stock("stock test",10,100);
 		Stock savedStock= stockService.addStock(s);
 		assertNotNull(savedStock.getIdStock());
-		assertSame(12, savedStock.getQte());
+		assertSame(10, savedStock.getQte());
 		assertTrue(savedStock.getQteMin()>0);
 		stockService.deleteStock(savedStock.getIdStock());
 		
@@ -37,4 +38,3 @@ public class StockServiceImplTest {
 	}
 
 }
-
