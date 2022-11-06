@@ -18,7 +18,7 @@ public class StockServiceImplTest {
 
 	
 	@Test
-	public void testAddStockOptimized() {
+	public void testAddStock() {
 
 		Stock s = new Stock("stock test",10,100);
 		Stock savedStock= stockService.addStock(s);
@@ -37,4 +37,15 @@ public class StockServiceImplTest {
 		assertNull(stockService.retrieveStock(savedStock.getIdStock()));
 	}
 
+	 @Test
+	 public void testUpdateOperateur() {
+	 Stock o = new Stock("stock test",10,100);
+	 o.setLibelleStock("updated stock");
+
+	 Stock savedStock = stockService.addStock(o);
+	 savedStock.setLibelleStock("updated stock");
+	 stockService.updateStock(savedStock);
+	 assertEquals(o.getLibelleStock(), savedStock.getLibelleStock());
+	 stockService.deleteStock(savedStock.getIdStock());
+	 }
 }
