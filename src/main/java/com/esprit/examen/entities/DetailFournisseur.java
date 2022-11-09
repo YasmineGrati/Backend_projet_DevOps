@@ -33,5 +33,11 @@ public class DetailFournisseur implements Serializable{
 	@OneToOne(mappedBy="detailFournisseur")
 	@JsonIgnore
 	private Fournisseur fournisseur;
+	public Date getDateDebutCollaboration() {
+		return dateDebutCollaboration;
+	}
+	public void setDateDebutCollaboration(Date dateDebutCollaboration) {
+		this.dateDebutCollaboration = dateDebutCollaboration;
+	}
 	
 }

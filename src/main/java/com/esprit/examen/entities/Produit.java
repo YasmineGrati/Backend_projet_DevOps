@@ -48,8 +48,23 @@ public class Produit implements Serializable {
 	@JsonIgnore
 	private CategorieProduit categorieProduit;
 	
-
-
-	
+	public Stock getStock() {
+		return stock;
+	}
+	public void setStock(Stock stock) {
+		this.stock = stock;
+	}
+	public Long getIdProduit() {
+		return idProduit;
+	}
+	public void setIdProduit(Long idProduit) {
+		this.idProduit = idProduit;
+	}
+	public float getPrix() {
+		return prix;
+	}
+	public void setPrix(float prix) {
+		this.prix = prix;
+	}
 
 }

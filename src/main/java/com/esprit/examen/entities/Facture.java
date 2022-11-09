@@ -67,4 +67,28 @@ public class Facture implements Serializable {
 		this.idFacture = idFacture;
 	}
 
+	public Boolean getArchivee() {
+		return archivee;
+	}
+
+	public void setArchivee(Boolean archivee) {
+		this.archivee = archivee;
+	}
+
+	public float getMontantRemise() {
+		return montantRemise;
+	}
+
+	public void setMontantRemise(float montantRemise) {
+		this.montantRemise = montantRemise;
+	}
+
+	public float getMontantFacture() {
+		return montantFacture;
+	}
+
+	public void setMontantFacture(float montantFacture) {
+		this.montantFacture = montantFacture;
+	}
+
 }
