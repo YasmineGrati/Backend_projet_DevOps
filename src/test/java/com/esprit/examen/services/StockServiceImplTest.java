@@ -1,4 +1,5 @@
-/*package com.esprit.examen.services;
+/*
+package com.esprit.examen.services;
 
 import static org.junit.Assert.*;
 import java.util.List;
@@ -14,6 +15,9 @@ import com.esprit.examen.entities.Stock;
 public class StockServiceImplTest {
 	@Autowired
 	IStockService stockService;
+	
+	@Autowired
+	IProduitService produitService;
 	
 	@Test
 	public void testAddStock() {
