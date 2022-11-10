@@ -1,11 +1,10 @@
 package com.esprit.examen.services;
 
-import java.util.Date;
+
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.esprit.examen.entities.CategorieProduit;
 import com.esprit.examen.entities.Produit;
 import com.esprit.examen.entities.Stock;
 import com.esprit.examen.repositories.CategorieProduitRepository;
@@ -26,11 +25,9 @@ public class ProduitServiceImpl implements IProduitService {
 
 	@Override
 	public List<Produit> retrieveAllProduits() {
-		List<Produit> produits = (List<Produit>) produitRepository.findAll();
-		for (Produit produit : produits) {
-	//		log.info(" Produit : " + produit);
-		}
-		return produits;
+	return produitRepository.findAll();
+	
+		
 	}
 
 	@Transactional
@@ -53,17 +50,19 @@ public class ProduitServiceImpl implements IProduitService {
 
 	@Override
 	public Produit retrieveProduit(Long produitId) {
-		Produit produit = produitRepository.findById(produitId).orElse(null);
-	//	log.info("produit :" + produit);
-		return produit;
+	return produitRepository.findById(produitId).orElse(null);
+	
 	}
 
 	@Override
 	public void assignProduitToStock(Long idProduit, Long idStock) {
 		Produit produit = produitRepository.findById(idProduit).orElse(null);
+		if(produit==null) {System.out.println("not found");}
+		else {
 		Stock stock = stockRepository.findById(idStock).orElse(null);
+		if(stock!=null) {
 		produit.setStock(stock);
-		produitRepository.save(produit);
+		produitRepository.save(produit);}}
 
 	}
 
