@@ -20,8 +20,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.esprit.examen.entities.Facture;
 import com.esprit.examen.repositories.FactureRepository;
 
-@RunWith
-(SpringRunner.class)
+@RunWith(SpringRunner.class)
 @SpringBootTest
 public class FactureServiceImplTest {
 	
