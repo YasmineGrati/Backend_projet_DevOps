@@ -1,24 +1,24 @@
-version: "3"
+version: "3.3"
 
 services:
   mysqldb:
+    container_name: mysqldb
     image: mysql:5.7
-    
-    env_file: ./.env
+    restart: unless-stopped
     environment:
-      - MYSQL_DATABASE=$MYSQLDB_DATABASE
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=tpachato
     ports:
-      - $MYSQLDB_LOCAL_PORT:$MYSQLDB_DOCKER_PORT
+      - 3306:3306
     volumes:
-      - db:/var/lib/mysql
-
+      - /home/mysql/data
   app:
     depends_on:
       - mysqldb
     build:
       context: "./"
       dockerfile: "Dockerfile"
-    
+    restart: on-failure
     ports:
       - 8089:8089
     environment:
@@ -30,10 +30,9 @@ services:
         "spring.jpa.hibernate.ddl-auto" : "update"
       }'
     volumes:
-      - .m2:/root/.m2
+      - /home/m2
     stdin_open: true
     tty: true
 
 volumes:
   db:
-
