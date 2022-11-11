@@ -14,7 +14,7 @@ services:
   app:
     depends_on:
       - mysqldb
-    image: elyeszarrad/tpachat:latest
+    image: elyeszarrad/tpachat:rc1
     container_name: springboot-app
     build: .
     restart: on-failure
