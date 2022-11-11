@@ -33,7 +33,7 @@ services:
     tty: true
   projetdevopsfrontend:
     depends_on:
-      - projetdevopsbackend
+      - app
     container_name: projetdevopsfrontend
     ports:
       - '4200:80'
