@@ -17,7 +17,6 @@ services:
     image: elyeszarrad/tpachat:latest
     container_name: springboot-app
     build: .
-    restart: on-failure
     env_file: ./.env
     ports:
       - $SPRING_LOCAL_PORT:$SPRING_DOCKER_PORT
