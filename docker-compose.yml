@@ -37,6 +37,6 @@ services:
     container_name: projetdevopsfrontend
     ports:
       - '4200:80'
-    image: goro1809/projetdevopsfrontend 
+    image: elyeszarrad/projetdevopsfrontend 
 volumes:
   db:
