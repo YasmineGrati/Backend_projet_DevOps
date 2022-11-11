@@ -14,8 +14,9 @@ services:
   app:
     depends_on:
       - mysqldb
-    image: tpachatproject:latest
+    image: elyeszarrad/tpachat
     container_name: springboot-app
+    build: .
     restart: on-failure
     env_file: ./.env
     ports:
